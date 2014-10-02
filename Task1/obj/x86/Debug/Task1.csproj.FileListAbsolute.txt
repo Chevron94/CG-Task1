@@ -5,3 +5,4 @@ D:\Labs\3 курс\1 семестр\КГ\Task1\Task1\obj\x86\Debug\Task1.Propert
 D:\Labs\3 курс\1 семестр\КГ\Task1\Task1\obj\x86\Debug\Task1.csproj.GenerateResource.Cache
 D:\Labs\3 курс\1 семестр\КГ\Task1\Task1\obj\x86\Debug\Task1.exe
 D:\Labs\3 курс\1 семестр\КГ\Task1\Task1\obj\x86\Debug\Task1.pdb
+D:\Labs\3 курс\1 семестр\КГ\Task1\Task1\obj\x86\Debug\Task1.csprojResolveAssemblyReference.cache

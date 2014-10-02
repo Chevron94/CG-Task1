@@ -16,7 +16,13 @@ namespace Task1
             InitializeComponent();
             gScreen = CreateGraphics();
             Application.Idle += MyIdle;
+            LineStyle.SelectedItem = 0;
+            LineStyle.Text = LineStyle.Items[0].ToString();
+            Typeline = typeline.normal;
+            
         }
+        enum typeline { normal, dash, dash_dot};
+        typeline Typeline;
         Graphics gScreen;
         Color Color = Color.Black;
         float x_start_d = 0;
@@ -66,11 +72,57 @@ namespace Task1
 
             gScreen.Clear(BackColor);
             Bitmap bitmap = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
-            for (int i = 0; i <= l; i++)
+            switch (Typeline)
             {
-                bitmap.SetPixel((int)x[i], (int)y[i], Color);
+                case typeline.normal:
+                    for (int i = 0; i <= l; i++)
+                    {
+                        bitmap.SetPixel((int)Math.Round(x[i]), (int)Math.Round(y[i]), Color);
+                    }
+                    break;
+                case typeline.dash:
+                    for (int i = 0; i <= l; i+=4)
+                    {
+                        bitmap.SetPixel((int)Math.Round(x[i]), (int)Math.Round(y[i]), Color);
+                        if (i + 1 <= l)
+                        {
+                            bitmap.SetPixel((int)Math.Round(x[i + 1]), (int)Math.Round(y[i + 1]), Color);
+                        }
+
+                    }
+                    break;
+                case typeline.dash_dot:
+                    for (int i = 0; i <= l; i+=5)
+                    {
+                        bitmap.SetPixel((int)Math.Round(x[i]), (int)Math.Round(y[i]), Color);
+                        if (i + 1 <= l)
+                        {
+                            bitmap.SetPixel((int)Math.Round(x[i + 1]), (int)Math.Round(y[i + 1]), Color);
+                        }
+                        if (i + 3 <= l)
+                        {
+                            bitmap.SetPixel((int)Math.Round(x[i + 3]), (int)Math.Round(y[i + 3]), Color);
+                        }
+
+                    }
+                    break;
+
             }
             gScreen.DrawImage(bitmap, ClientRectangle);
+        }
+
+        private void LineStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (LineStyle.SelectedIndex)
+            {
+                case 0: Typeline = Form1.typeline.normal;
+                        break;
+                case 1: Typeline = typeline.dash;
+                        break;
+                case 2: Typeline = typeline.dash_dot;
+                        break;
+            }
+            //gScreen.Clear(BackColor);
         }
     }
 }

@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LineStyle = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +132,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.LineStyle);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Draw);
             this.panel1.Controls.Add(this.label4);
@@ -144,6 +148,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(212, 265);
             this.panel1.TabIndex = 10;
+            // 
+            // LineStyle
+            // 
+            this.LineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LineStyle.FormattingEnabled = true;
+            this.LineStyle.Items.AddRange(new object[] {
+            "normal",
+            "dash",
+            "dash-dot"});
+            this.LineStyle.Location = new System.Drawing.Point(76, 117);
+            this.LineStyle.Name = "LineStyle";
+            this.LineStyle.Size = new System.Drawing.Size(121, 21);
+            this.LineStyle.TabIndex = 11;
+            this.LineStyle.SelectedIndexChanged += new System.EventHandler(this.LineStyle_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Шаблон:";
             // 
             // Form1
             // 
@@ -178,6 +205,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox LineStyle;
+        private System.Windows.Forms.Label label5;
     }
 }
 
